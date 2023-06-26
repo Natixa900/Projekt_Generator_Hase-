@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PasswordGenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="PasswordGenEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PasswordContainer" EntityType="PasswordGenModel.PasswordContainer" />
+  </EntityContainer>
+  <EntityType Name="PasswordContainer">
+    <Key>
+      <PropertyRef Name="Nazwa" />
+    </Key>
+    <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Haslo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

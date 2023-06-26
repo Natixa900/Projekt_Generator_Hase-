@@ -1,0 +1,97 @@
+﻿<Window x:Class="PasswordGenerator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PasswordGenerator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+
+    <Grid x:Name="GRrrr" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
+        <Border CornerRadius="10" >
+            <TabControl Margin="0,0,0.333,-0.333">
+                <TabItem Name="Home" Header="Home" Margin="548,10,-568,-24" Background="#FFE5E5E5" BorderBrush="{x:Null}">
+                    <Grid Name="GridHome" Margin="-9,-22,-6.333,-2.333" Background="#FF99B4D1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <!--zapisz hasło-->
+                            <TextBox Grid.Column="1" x:Name="Saved" IsReadOnly="False" Margin="173.667,91,28,0" TextWrapping="Wrap" Text="" Height="49" VerticalAlignment="Top"/>
+
+                            <TextBox Grid.Column="1" x:Name="Gdzie" Margin="173.667,10,28,0" TextWrapping="Wrap" Text="" Height="49" VerticalAlignment="Top"/>
+                            <Button Grid.Column="1" x:Name="FSave" Content="Zapisz" Margin="173.667,145,28,10.333"  Click="FinalSave"/>
+                            <Label Grid.Column="1" Name="NM" Content="Nazwa" Margin="83.667,26,232,142.333" RenderTransformOrigin="0.426,0.538" FontSize="20"/>
+                            <Label Grid.Column="1" Name="PASE" Content="Hasło" Margin="83.667,91,232,67.333" FontSize="20"/>
+                            <Grid Grid.Row="1" Grid.Column="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Button Name="Generuj" Content="Generuj" Margin="14,139,9.667,10.333" Click="Generate_Click" Grid.Column="0"/>
+
+                                <Button Grid.Column="1" x:Name="CHZapisz" Content="chce zapisać" Margin="8.333,139,10.333,10.333" Click="Save_PS" IsEnabled="False"/>
+                            </Grid>
+
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Name="Label1" Content="Password Generator" Margin="10,10,0.333,0" FontSize="40" Height="74" VerticalAlignment="Top"/>
+                            <TextBox Grid.Row="0"  Name="ShowPSD" IsReadOnly="True" Margin="14,100,0.333,10" TextWrapping="Wrap" Text="" Background="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}" FontSize="60"/>
+
+                            <!--poprzednie hasła-->
+                            <Label Grid.Column="1" Name="POpr" Content="Poprzednie hasło" Margin="271.667,66,0,111" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBox Grid.Column="1" x:Name="oldPS" IsReadOnly="True" Margin="271.667,102,28,0" TextWrapping="Wrap" Text="" Height="23" VerticalAlignment="Top"/>
+                        </Grid>
+
+
+
+
+
+                    </Grid>
+                </TabItem>
+                <TabItem Name="HS"  Header="Historia" Margin="569,10,-596.333,-25" BorderBrush="{x:Null}">
+                    <Grid Name="Histo" Background="#FF99B4D1" Margin="-9,-26,-3.333,-4">
+                        <DataGrid x:Name="His" Margin="10,50,10,52"/>
+                        <Button Content="odswiez" Margin="0,0,10,10.333" Click="History_Loaded" Height="36" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="155"/>
+                        <TextBox Name="SearchBox" HorizontalAlignment="Left" Height="35" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" FontSize="20"/>
+                        <Button Content="szukaj" HorizontalAlignment="Left" Margin="201,10,0,0" VerticalAlignment="Top" Width="75" Height="35" Click="SearchButton"/>
+                        <Button Content="Usuń Rekord" Margin="470,0,183,10.333" VerticalAlignment="Bottom" Height="36" Click="Delete_Click"/>
+
+                    </Grid>
+                </TabItem>
+                <TabItem Name="UST" Header="ustawienia" Margin="597.333,10,-618.333,-25" BorderBrush="{x:Null}">
+                    <Grid x:Name="GridUSt" Margin="-9,-24,-3.333,-3.333" Background="#FF99B4D1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Margin="10,0,9.667,9.666">
+                            <Label Name="Tryb" Content="Tryb"/>
+                            <RadioButton x:Name="Night" Content="Night" Checked="NightTR"/>
+                            <RadioButton x:Name="Light" Content="Light" Checked="LightTR"/>
+
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Margin="0.333,0,9.667,9.666">
+                            <Label Name="PSLEN" Content="długość hasła"/>
+                            <RadioButton x:Name="znaki1" Content="8 znakow" Checked="znaki_Checked"/>
+                            <RadioButton x:Name="znaki2" Content="10 znaków" Checked="znaki_Checked"/>
+                        </StackPanel>
+
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Border>
+    </Grid>
+</Window>
